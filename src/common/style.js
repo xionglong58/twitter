@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const NavWrapper = styled.div`
 width:255px;
 float:left;
+overflow:scorll;
 .iconfont{
     font-size:25px;
     margin-right:10px;
