@@ -1,14 +1,23 @@
 import React from 'react';
 import Navigator from './common/index';
 import { GlobalIconfontStyle } from './static/iconfont';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Provider } from "react-redux";
+import store from './store/index';
+import HomePage from './pages/home';
+
 
 
 function App() {
   return (
-    <div className="App">
-      <GlobalIconfontStyle />
-      <Navigator />
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalIconfontStyle />
+        <Navigator/>
+        <HomePage/>
+        {/* <Route path="/twitter" exact component={Navigator} /> */}
+      </BrowserRouter>
+    </Provider>
   );
 }
 

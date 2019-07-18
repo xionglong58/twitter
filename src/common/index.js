@@ -1,24 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import 'antd/dist/antd.css';
 import { Menu } from 'antd';
 import { NavWrapper } from './style';
+import { connect } from "react-redux";
 
 class Navigator extends React.Component {
-    handleClick = e => {
-        console.log('click ', e);
-    };
-
     render() {
         return (
             <NavWrapper>
                 <Menu
                     onClick={this.handleClick}
                     style={{ width: 256, height: '100vh', fontSize: 20 }}
-                    // defaultSelectedKeys={['1']}
-                    // defaultOpenKeys={['sub1']}
                     mode="inline"
                 >
-                    <div><span className="iconfont">&#xe601;</span></div>
+                    <div className="twitterIcon"><span className="iconfont">&#xe601;</span></div>
                     <Menu.Item key="1">
                         <div><span className="iconfont">&#xe66b;</span>
                             Home</div>
@@ -51,10 +46,11 @@ class Navigator extends React.Component {
                         <div><span className="iconfont">&#xe607;</span>
                             More</div>
                     </Menu.Item>
+                    <div className="tweet">Tweet</div>
                 </Menu>
             </NavWrapper>
         );
     }
 }
 
-export default Navigator;
+export default connect(null, null)(Navigator);
