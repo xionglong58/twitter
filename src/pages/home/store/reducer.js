@@ -9,6 +9,9 @@ export default (state = defaultData, action) => {
         case actionTypes.HEADERCLICK:{
             return state.set('clickState',action.value)
         }
+        case actionTypes.HEADERCLOSE:{
+            return state.set('clickState',action.value)
+        }
         default:{
             return state;
         }

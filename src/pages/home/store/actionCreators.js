@@ -5,3 +5,10 @@ export const getClickAction=()=>{
         value:true
     }
 }
+
+export const getClickCloseAction=()=>{
+    return {
+        type:actionTypes.HEADERCLOSE,
+        value:false
+    }
+}

@@ -59,10 +59,43 @@ export const WhatIsHappen = styled.div`
 `;
 
 export const TweetPost = styled.div`
+  left: 20%;
+  top: 100%;
   position: absolute;
-  height:300px;
+  height: 300px;
   width: 100%;
-  background-color: red;
+  border-radius: 5%;
+  background-color: #FFF;
+  border: 1px solid rgb(230, 236, 240);
+  .postHeader {
+    width: 100%;
+    border-bottom: 1px solid rgb(230, 236, 240);
+    overflow: hidden;
+    .post {
+      display: inline-block;
+      float: right;
+      width: 80px;
+      height: 40px;
+      border-radius: 20px;
+      border: 1px solid rgb(230, 236, 240);
+      text-align: center;
+    }
+    .close {
+      float: left;
+      font-size: 20px;
+      height: 30px;
+      padding-left: 10px;
+      margin-top: 5px;
+      span {
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+    .close:hover {
+      background-color: rgba(29, 161, 242, 0.1);
+      border-radius: 15px;
+    }
+  }
 `;
 
 export const SearchBar = styled.div`
