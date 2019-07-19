@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HomepageWrapper = styled.div`
   float: left;
-  width: 990px;
+  width: 90%;
   overflow: hidden;
 `;
 export const HomepageLeft = styled.div`
@@ -28,6 +28,7 @@ export const WhatIsHappen = styled.div`
   font-weight: bold;
   border-right: 1px solid #333;
   border: 1px solid rgb(230, 236, 240);
+  border-top:none;
   position: relative;
   cursor: pointer;
   div {
@@ -35,10 +36,11 @@ export const WhatIsHappen = styled.div`
     line-height: 37px;
   }
   .profile {
+    img{
     width: 35px;
     height: 35px;
-    border-radius: 50%;
-    background-color: blue;
+    border-radius: 17.5px;
+    }
     margin: 8px 0 0 8px;
     height: 37px;
   }
@@ -56,57 +58,49 @@ export const WhatIsHappen = styled.div`
     line-height: 53px;
     color: #1da1f2;
   }
-`;
-
-export const TweetPost = styled.div`
-  left: 20%;
-  top: 100%;
-  position: absolute;
-  height: 300px;
-  width: 100%;
-  border-radius: 5%;
-  background-color: #FFF;
-  border: 1px solid rgb(230, 236, 240);
-  .postHeader {
-    width: 100%;
-    border-bottom: 1px solid rgb(230, 236, 240);
-    overflow: hidden;
-    .post {
-      display: inline-block;
-      float: right;
-      width: 80px;
-      height: 40px;
-      border-radius: 20px;
-      border: 1px solid rgb(230, 236, 240);
-      text-align: center;
-    }
-    .close {
-      float: left;
-      font-size: 20px;
-      height: 30px;
-      padding-left: 10px;
-      margin-top: 5px;
-      span {
-        line-height: 30px;
-        text-align: center;
-      }
-    }
-    .close:hover {
-      background-color: rgba(29, 161, 242, 0.1);
-      border-radius: 15px;
-    }
+  img{
+    border-radius:18.5px;
   }
 `;
 
 export const SearchBar = styled.div`
   position: relative;
-  float: right;
+  float: left;
   height: 53px;
+  margin:53px 20px;
   .SearchTwitter {
     height: 39px;
-    width: 318px;
+    width: 300px;
     border-radius: 18px;
     margin-top: 7px;
     padding-left: 40px;
   }
+`;
+
+export const ListItemWrapper = styled.div`
+width:523px;
+border: 1px solid rgb(230, 236, 240);
+overflow:hidden;
+.profile{
+  margin-top:10px;
+  float:left;
+  height:100px;
+  img{
+    border-radius:50%;
+    cursor:pointer;
+  }
+}
+.content{
+  margin:10px 10px;
+  float:left;
+  .userName{
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+  }
+  span{
+    margin-right:10px;
+  }
+}
+
 `;

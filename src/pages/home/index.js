@@ -1,64 +1,54 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { actionCreators } from "./store";
+import Navigator from '../../common/index';
+import ListItemWrapper from './list';
 import {
   HomepageWrapper,
   HomepageHeader,
   SearchBar,
   WhatIsHappen,
   HomepageLeft,
-  TweetPost
 } from "./style";
 class HomePage extends PureComponent {
-  clickHeaderToPost() {
-    return (
-      <TweetPost>
-        <div className="postHeader">
-          <div className="close">
-            <span onClick={this.props.handleClickClose} className="iconfont">
-              &#xe644;
-            </span>
-          </div>
-          <div className="post">Tweet</div>
-        </div>
-      </TweetPost>
-    );
-  }
   render() {
-    const { clickStatus, handleClick } = this.props;
+    const { handleClick, profile } = this.props;
     return (
       <HomepageWrapper>
+        <Navigator />
         <HomepageLeft>
           <HomepageHeader>Home</HomepageHeader>
           <WhatIsHappen>
             <div className="profile" onClick={handleClick}>
-              <img src="#" alt="" />
+              <img src={profile.get("imgUrl")} alt="profile" />
             </div>
-            <div className="tweets" onClick={handleClick}>
+            <div className="tweets">
               What's is happening?
             </div>
-            <span className="iconfont" onClick={handleClick}>
+            <span className="iconfont" >
               &#xe692;
             </span>
-            <span className="iconfont" onClick={handleClick}>
+            <span className="iconfont" >
               &#xe64d;
             </span>
-            <span className="iconfont" onClick={handleClick}>
+            <span className="iconfont">
               &#xe615;
             </span>
-            {clickStatus && this.clickHeaderToPost()}
           </WhatIsHappen>
+          <ListItemWrapper />
         </HomepageLeft>
         <SearchBar>
           <input placeholder="Search Twitter" className="SearchTwitter" />
         </SearchBar>
+
       </HomepageWrapper>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    clickStatus: state.getIn(["header", "clickState"])
+    clickStatus: state.getIn(["header", "clickState"]),
+    profile: state.getIn(["navigator", "profile"])
   };
 };
 const mapStateToDispatch = dispatch => {

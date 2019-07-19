@@ -3,9 +3,15 @@ import 'antd/dist/antd.css';
 import { Menu } from 'antd';
 import { NavWrapper } from './style';
 import { connect } from "react-redux";
+import { Link } from "react-router-dom"
+import { actionCreators } from './store';
 
 class Navigator extends React.Component {
+    componentDidMount() {
+        this.props.HandleUserInfo();
+    }
     render() {
+        const { profile } = this.props;
         return (
             <NavWrapper>
                 <Menu
@@ -15,8 +21,8 @@ class Navigator extends React.Component {
                 >
                     <div className="twitterIcon"><span className="iconfont">&#xe601;</span></div>
                     <Menu.Item key="1">
-                        <div><span className="iconfont">&#xe66b;</span>
-                            Home</div>
+                        <Link to="/twitter/home"><div><span className="iconfont">&#xe66b;</span>
+                            Home</div></Link>
                     </Menu.Item>
                     <Menu.Item key="2">
                         <div><span className="iconfont">&#xe643;</span>
@@ -39,18 +45,29 @@ class Navigator extends React.Component {
                             Lists</div>
                     </Menu.Item>
                     <Menu.Item key="7">
-                        <div><span className="iconfont">&#xe60a;</span>
-                            Profile</div>
+                        <div><img src={profile.get("imgUrl")} alt="profile" className="profile"/>Profile</div>
                     </Menu.Item>
                     <Menu.Item key="8">
                         <div><span className="iconfont">&#xe607;</span>
                             More</div>
                     </Menu.Item>
-                    <div className="tweet">Tweet</div>
+                    <Link to="/twitter/tweet"><div className="tweet">Tweet</div></Link>
                 </Menu>
             </NavWrapper>
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        profile: state.getIn(["navigator", "profile"])
+    }
+}
+const mapStateToDispatch = (dispatch) => {
+    return {
+        HandleUserInfo() {
+            dispatch(actionCreators.getUserInfo())
+        }
+    }
+}
 
-export default connect(null, null)(Navigator);
+export default connect(mapStateToProps, mapStateToDispatch)(Navigator);

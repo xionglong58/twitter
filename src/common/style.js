@@ -21,7 +21,7 @@ div:hover{
     &.tweet{
         background-color:#1da1f2;
         color:#FFF;
-        border-radius:25px;  
+        border-radius:25px;
     }
 }
 .twitterIcon{
@@ -41,5 +41,14 @@ div:hover{
     text-align:center;
     margin:0 24px;
     cursor:pointer;
+}
+.profile{
+    height:25px;
+    width:25px;
+    border-radius:50%;
+    font-size:0px;
+    line-height:40px;
+    margin-bottom:7px;
+    margin-right:10px; 
 }
 `

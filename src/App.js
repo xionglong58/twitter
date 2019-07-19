@@ -1,11 +1,11 @@
 import React from "react";
-import Navigator from "./common/index";
 import { GlobalIconfontStyle } from "./static/iconfont";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/index";
-import HomePage from "./pages/home";
 import { FlexWrapper } from "./style";
+import TweetPost from './pages/postTweet/index';
+import HomePage from './pages/home/index';
 
 function App() {
   return (
@@ -13,9 +13,10 @@ function App() {
       <BrowserRouter>
         <GlobalIconfontStyle />
         <FlexWrapper>
-          <Navigator />
-          <HomePage />
-          {/* <Route path="/twitter" exact component={Navigator} /> */}
+          <Route path="/twitter/home" exact component={HomePage} />
+          <Route path="/twitter/home/tweet" exact component={TweetPost} />
+          <Route path="/twitter/tweet" exact component={TweetPost} />
+          {/* <TweetPost /> */}
         </FlexWrapper>
       </BrowserRouter>
     </Provider>
