@@ -7,14 +7,14 @@ class ListItem extends PureComponent {
         this.props.HandleTweetsList();
     }
     render() {
-        const { tweetsList, handleMouseEnter, handleMouseLeave } = this.props;
+        const { tweetsList, handleMouseEnter, handleMouseLeave, mouseEnter } = this.props;
         return <Fragment>
             {
                 tweetsList.map((item) => (
                     <ListItemWrapper key={item.get("userName")}>
                         <div className="profile">
                             <img src={item.get("imgUrl")} alt="profile"
-                                onMouseEnter={handleMouseEnter}
+                                onMouseOver={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                             />
                         </div>
@@ -45,25 +45,27 @@ class ListItem extends PureComponent {
                                 </div>
                             }
                         </div>
-                        <ListItemInfo>
-                            <div className="profile">
-                                <img src={item.get("imgUrl")} alt="profile" />
-                            </div>
-                            <div className="content">
-                                <div className="user-info">
-                                    <span className="userName">
-                                        {item.get("userName")}</span>
-                                    <span className="userId">@{item.get("userId")}</span>
+                        {mouseEnter &&
+                            <ListItemInfo>
+                                <div className="profile">
+                                    <img src={item.get("imgUrl")} alt="profile" />
+                                    <div>Tweet</div>
                                 </div>
-                                <div className="text">
-                                    <p>{item.get("userSlogan")}</p>
+                                <div className="content">
+                                    <div className="user-info">
+                                        <span className="userName">
+                                            {item.get("userName")}</span>
+                                        <span className="userId">@{item.get("userId")}</span>
+                                    </div>
+                                    <div className="text">
+                                        <p>{item.get("userSlogan")}</p>
+                                    </div>
+                                    <div className="followeInfo">
+                                        <span>{item.get("following")}Following</span>
+                                        <span>{item.get("follower")}K Follower</span>
+                                    </div>
                                 </div>
-                                <div className="followeInfo">
-                                    <span>{item.get("following")}Following</span>
-                                    <span>{item.get("follower")}K Follower</span>
-                                </div>
-                            </div>
-                        </ListItemInfo>
+                            </ListItemInfo>}
                     </ListItemWrapper>
                 ))
             }
@@ -72,7 +74,9 @@ class ListItem extends PureComponent {
 }
 const mapStateToProps = state => {
     return {
-        tweetsList: state.getIn(["header", "tweetsList"])
+        tweetsList: state.getIn(["header", "tweetsList"]),
+        mouseEnter: state.getIn(["header", "mouseEnterOrMouseLeave"])
+
     };
 };
 const mapStateToDispatch = dispatch => {

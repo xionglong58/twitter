@@ -144,7 +144,6 @@ height:auto;
 float:none;
 .text{
   width:100%;
-  
 }
 .user-info{
   span{
