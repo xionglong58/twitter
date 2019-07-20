@@ -31,3 +31,17 @@ export const getTweetsListAction = () => {
         })
     }
 }
+
+export const getMouseEnterAction=()=>{
+    return {
+        type:actionTypes.HANDLE_ONMOUSEENTER,
+        value:true
+    }
+}
+
+export const getMouseLeaveAction=()=>{
+    return {
+        type:actionTypes.HANDLE_ONMOUSELEAVE,
+        value:false
+    }
+}

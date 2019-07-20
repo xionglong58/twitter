@@ -2,6 +2,7 @@ import { fromJS } from "immutable";
 import {actionTypes} from './index';
 const defaultData = fromJS({
   clickState: false,
+  mouseEnterOrMouseLeave:false,
   tweetsList:[]
 });
 
@@ -16,6 +17,14 @@ export default (state = defaultData, action) => {
         case actionTypes.HANDLEHOMETWEETSLIST:{
             return state.set('tweetsList',action.value)
         }
+        case actionTypes.HANDLE_ONMOUSEENTER:{
+            console.log(action.value)
+            return state.set('mouseEnterOrMouseLeave',action.value)
+        }
+        case actionTypes.HANDLE_ONMOUSELEAVE:{
+            console.log(action.value)
+            return state.set('mouseEnterOrMouseLeave',action.value)
+        }     
         default:{
             return state;
         }

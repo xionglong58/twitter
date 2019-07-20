@@ -70,17 +70,22 @@ export const WhatIsHappen = styled.div`
 `;
 
 export const SearchBar = styled.div`
-  position: relative;
-  left:255px;
-  float: left;
+  position: fixed;
+  /* left:700px; */
+  width:100%;
   height: 53px;
-  margin:53px 20px;
+  margin-left:20px;
   .SearchTwitter {
     height: 39px;
     width: 300px;
     border-radius: 18px;
     margin-top: 7px;
     padding-left: 40px;
+    position:absolute;
+    left:778px;
+  }
+  input{
+    outline:none;
   }
 `;
 
@@ -90,6 +95,7 @@ margin-top:53px;
 border: 1px solid rgb(230, 236, 240);
 border-top:none;
 overflow:hidden;
+position:relative;
 .profile{
   margin:10px 10px;
   float:left;
@@ -120,5 +126,30 @@ overflow:hidden;
     width:400px;
   }
 }
-
+`;
+export const ListItemInfo = styled.div`
+position:absolute;
+width:300px;
+/* height:200px; */
+background-color:#FFF;
+border: 1px solid rgb(230, 236, 240);
+top:35px;
+left:70px;
+border-radius:10px;
+.profile{
+float:none;
+height:auto;
+}
+.content{
+float:none;
+.text{
+  width:100%;
+  
+}
+.user-info{
+  span{
+  display:block;
+}
+}
+}
 `;
