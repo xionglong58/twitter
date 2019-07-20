@@ -5,6 +5,7 @@ width:255px;
 float:left;
 position:fixed;
 overflow:scorll;
+z-index:13;
 .iconfont{
     font-size:25px;
     margin-right:10px;

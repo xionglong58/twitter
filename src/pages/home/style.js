@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const HomepageWrapper = styled.div`
+position:relative;
   float: left;
   width: 90%;
   overflow: hidden;
@@ -21,7 +22,7 @@ export const HomepageHeader = styled.div`
   border: 1px solid rgb(230, 236, 240);
   padding: 0 10px;
   background-color:#FFF;
-  z-index:10;
+  z-index:11;
 `;
 
 export const WhatIsHappen = styled.div`
@@ -71,7 +72,8 @@ export const WhatIsHappen = styled.div`
 
 export const SearchBar = styled.div`
   position: fixed;
-  /* left:700px; */
+  background-color:#FFF;
+  z-index:10;
   width:100%;
   height: 53px;
   margin-left:20px;
@@ -152,3 +154,67 @@ float:none;
 }
 }
 `;
+
+export const HomepageRight = styled.div`
+position:absolute;
+top:53px;
+right:10%;
+width:300px;
+min-height:45px;
+background-color:#f5f8fa;
+border-top-right-radius:10px;
+border-top-left-radius:10px;
+.header{
+  position:absolute;
+  width:100%;
+  height:45px;
+  padding-left:10px;
+  span{
+    font-size:19px;
+    font-weight:bold;
+    line-height:45px;
+  }
+}
+`;
+
+export const TrendWrapper = styled.div`
+position:absolute;
+top:45px;
+width:100%;
+background-color:#f5f8fa;
+border-bottom-right-radius:10px;
+border-bottom-left-radius:10px;
+border-bottom:1px solid rgb(230, 236, 240);
+.show-more{
+    padding:10px;
+    border-top:1px solid rgb(230, 236, 240);
+    font-size:15px;
+    color:#1da1f2;
+    font-weight:bold;
+    cursor:pointer;
+    :hover{
+  background-color:rgba(170,197,184,0.1);
+}
+  }
+`
+
+export const TrendItem = styled.div`
+:hover{
+  background-color:rgba(170,197,184,0.1);
+}
+  border-top:1px solid rgb(230, 236, 240);
+  padding:10px 10px;
+  .trendLoction,.tweetNumber{
+    font-size:13px;
+    color:#657786;
+  }
+  .trendContent{
+    font-size:15px;
+    color:#14171A;
+    font-weight:bold;
+  }
+  cursor:pointer;
+  
+`
+
+

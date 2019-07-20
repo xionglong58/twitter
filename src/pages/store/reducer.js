@@ -3,7 +3,8 @@ import {actionTypes} from './index';
 const defaultData = fromJS({
   clickState: false,
   mouseEnterOrMouseLeave:false,
-  tweetsList:[]
+  tweetsList:[],
+  trendList:[]
 });
 
 export default (state = defaultData, action) => {
@@ -18,13 +19,18 @@ export default (state = defaultData, action) => {
             return state.set('tweetsList',action.value)
         }
         case actionTypes.HANDLE_ONMOUSEENTER:{
-            console.log(action.value)
             return state.set('mouseEnterOrMouseLeave',action.value)
         }
         case actionTypes.HANDLE_ONMOUSELEAVE:{
-            console.log(action.value)
             return state.set('mouseEnterOrMouseLeave',action.value)
-        }     
+        }
+        case actionTypes.HANDLE_TREND_LIST:{
+            return state.set('trendList',action.value)
+        }
+        case actionTypes.HANDLE_MORE_TREND_LIST:{
+            console.log("action.value")
+            return state.set('trendList',state.get("trendList").concat(action.value))
+        }           
         default:{
             return state;
         }

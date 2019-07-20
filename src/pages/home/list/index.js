@@ -46,26 +46,27 @@ class ListItem extends PureComponent {
                             }
                         </div>
                         {mouseEnter &&
-                            <ListItemInfo>
-                                <div className="profile">
-                                    <img src={item.get("imgUrl")} alt="profile" />
-                                    <div>Tweet</div>
-                                </div>
-                                <div className="content">
-                                    <div className="user-info">
-                                        <span className="userName">
-                                            {item.get("userName")}</span>
-                                        <span className="userId">@{item.get("userId")}</span>
+                                <ListItemInfo>
+                                    <div className="profile">
+                                        <img src={item.get("imgUrl")} alt="profile" />
+                                        <div>Tweet</div>
                                     </div>
-                                    <div className="text">
-                                        <p>{item.get("userSlogan")}</p>
+                                    <div className="content">
+                                        <div className="user-info">
+                                            <span className="userName">
+                                                {item.get("userName")}</span>
+                                            <span className="userId">@{item.get("userId")}</span>
+                                        </div>
+                                        <div className="text">
+                                            <p>{item.get("userSlogan")}</p>
+                                        </div>
+                                        <div className="followeInfo">
+                                            <span>{item.get("following")}Following</span>
+                                            <span>{item.get("follower")}K Follower</span>
+                                        </div>
                                     </div>
-                                    <div className="followeInfo">
-                                        <span>{item.get("following")}Following</span>
-                                        <span>{item.get("follower")}K Follower</span>
-                                    </div>
-                                </div>
-                            </ListItemInfo>}
+                                </ListItemInfo>
+                        }
                     </ListItemWrapper>
                 ))
             }

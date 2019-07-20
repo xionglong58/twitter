@@ -4,12 +4,14 @@ import { actionCreators } from "../store";
 import Navigator from '../../common/index';
 import ListItemWrapper from './list';
 import { Redirect } from 'react-router-dom';
+import TrendList from './trendList/index';
 import {
   HomepageWrapper,
   HomepageHeader,
   SearchBar,
   WhatIsHappen,
   HomepageLeft,
+  HomepageRight
 } from "./style";
 class HomePage extends PureComponent {
   render() {
@@ -42,6 +44,12 @@ class HomePage extends PureComponent {
         <SearchBar>
           <input placeholder="Search Twitter" className="SearchTwitter" />
         </SearchBar>
+        <HomepageRight>
+          <div className="header">
+            <span>Trends for you</span>
+          </div>
+          <TrendList />
+        </HomepageRight>
       </HomepageWrapper>
     );
   }

@@ -24,3 +24,22 @@ export const TweetsList = Mock.mock({
         "follower|1-10000":1,       
     }]
 })
+
+export const TrendsList = Mock.mock({
+    "trendsList|6": [{
+        "topicName": '@name()',
+        "topicLocation": '@province',
+        "tweetsNumber|1-10000":1,      
+    }]
+})
+
+export const moreTrendsList = Mock.mock({
+    "trendsList|6": [{
+        "topicName": '@name()',
+        "topicLocation": '@province',
+        "tweetsNumber|1-10000":1,      
+    }]
+})
+
+
+
