@@ -1,7 +1,8 @@
 import { fromJS } from "immutable";
 import {actionTypes} from './index';
 const defaultData = fromJS({
-  clickState: false
+  clickState: false,
+  tweetsList:[]
 });
 
 export default (state = defaultData, action) => {
@@ -11,6 +12,9 @@ export default (state = defaultData, action) => {
         }
         case actionTypes.HEADERCLOSE:{
             return state.set('clickState',action.value)
+        }
+        case actionTypes.HANDLEHOMETWEETSLIST:{
+            return state.set('tweetsList',action.value)
         }
         default:{
             return state;

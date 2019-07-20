@@ -1,8 +1,9 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "./store";
+import { actionCreators } from "../store";
 import Navigator from '../../common/index';
 import ListItemWrapper from './list';
+import { Redirect } from 'react-router-dom';
 import {
   HomepageWrapper,
   HomepageHeader,
@@ -12,14 +13,14 @@ import {
 } from "./style";
 class HomePage extends PureComponent {
   render() {
-    const { handleClick, profile } = this.props;
+    const { handleClick, profile, clickStatus } = this.props;
     return (
       <HomepageWrapper>
         <Navigator />
         <HomepageLeft>
           <HomepageHeader>Home</HomepageHeader>
-          <WhatIsHappen>
-            <div className="profile" onClick={handleClick}>
+          <WhatIsHappen onClick={handleClick}>
+            <div className="profile">
               <img src={profile.get("imgUrl")} alt="profile" />
             </div>
             <div className="tweets">
@@ -34,13 +35,13 @@ class HomePage extends PureComponent {
             <span className="iconfont">
               &#xe615;
             </span>
+            {clickStatus && <Redirect to="/twitter/home/tweet" />}
           </WhatIsHappen>
           <ListItemWrapper />
         </HomepageLeft>
         <SearchBar>
           <input placeholder="Search Twitter" className="SearchTwitter" />
         </SearchBar>
-
       </HomepageWrapper>
     );
   }

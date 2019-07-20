@@ -1,8 +1,12 @@
 import React, { PureComponent } from 'react';
 import { TweetPostWrapper } from './style';
+import { actionCreators } from '../store';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class TweetPost extends PureComponent {
     render() {
+        const { profile, clickStatus } = this.props;
         return (
             <TweetPostWrapper>
                 <div className="postHeader">
@@ -14,7 +18,7 @@ class TweetPost extends PureComponent {
                     <div className="post">Tweet</div>
                 </div>
                 <div className="profile">
-                    <img src="/" alt="profile" />
+                    <img src={profile.get("imgUrl")} alt="profile" />
                 </div>
                 <textarea placeholder="What's happending?" className="input" />
                 <div className="tewwt-types">
@@ -28,9 +32,25 @@ class TweetPost extends PureComponent {
                         &#xe615;
                     </span>
                 </div>
+                {!clickStatus && <Redirect to="/twitter/home" />}
             </TweetPostWrapper>
         );
     }
 }
-
-export default TweetPost;
+const mapStateToProps = state => {
+    return {
+        clickStatus: state.getIn(["header", "clickState"]),
+        profile: state.getIn(["navigator", "profile"])
+    };
+};
+const mapStateToDispatch = dispatch => {
+    return {
+        handleClickClose() {
+            dispatch(actionCreators.getClickCloseAction());
+        }
+    };
+};
+export default connect(
+    mapStateToProps,
+    mapStateToDispatch
+)(TweetPost);

@@ -7,8 +7,11 @@ export const HomepageWrapper = styled.div`
 `;
 export const HomepageLeft = styled.div`
   float: left;
+  position:relative;
+  left:255px;
 `;
 export const HomepageHeader = styled.div`
+  position:fixed;
   height: 53px;
   width: 523px;
   margin: 0 auto;
@@ -17,6 +20,8 @@ export const HomepageHeader = styled.div`
   font-weight: bold;
   border: 1px solid rgb(230, 236, 240);
   padding: 0 10px;
+  background-color:#FFF;
+  z-index:10;
 `;
 
 export const WhatIsHappen = styled.div`
@@ -30,6 +35,7 @@ export const WhatIsHappen = styled.div`
   border: 1px solid rgb(230, 236, 240);
   border-top:none;
   position: relative;
+  top:53px;
   cursor: pointer;
   div {
     display: inline-block;
@@ -65,6 +71,7 @@ export const WhatIsHappen = styled.div`
 
 export const SearchBar = styled.div`
   position: relative;
+  left:255px;
   float: left;
   height: 53px;
   margin:53px 20px;
@@ -79,10 +86,12 @@ export const SearchBar = styled.div`
 
 export const ListItemWrapper = styled.div`
 width:523px;
+margin-top:53px;
 border: 1px solid rgb(230, 236, 240);
+border-top:none;
 overflow:hidden;
 .profile{
-  margin-top:10px;
+  margin:10px 10px;
   float:left;
   height:100px;
   img{
@@ -100,6 +109,15 @@ overflow:hidden;
   }
   span{
     margin-right:10px;
+  }
+  .img{
+    width:400px;
+    img{
+      border-radius:15px;
+    }
+  }
+  .text{
+    width:400px;
   }
 }
 

@@ -35,6 +35,7 @@ export const TweetPostWrapper = styled.div`
       margin-left: 10px;
       text-align: center;
       margin-top: 5px;
+      cursor:pointer;
       span {
         font-size: 25px;
       }
@@ -63,8 +64,10 @@ export const TweetPostWrapper = styled.div`
     width:40px;
     height:40px;    
     margin:15px 10px;
-    border-radius:20px;
     background-color:red;
+    img{
+      border-radius:50%;
+    }
     }
    .tewwt-types{
         span{

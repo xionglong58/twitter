@@ -1,6 +1,6 @@
 import {combineReducers} from "redux-immutable";
 import {reducer as NavigatorReducer} from '../common/store';
-import {reducer as HeaderReducer} from '../pages/home/store';
+import {reducer as HeaderReducer} from '../pages/store';
 
 
 const reducer=combineReducers({
